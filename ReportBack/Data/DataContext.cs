@@ -15,6 +15,7 @@ namespace ReportBack.Data
         public DbSet<Sign> Signs { get; set; }
         public DbSet<House> Houses { get; set; }
         public DbSet<Planet> Planets { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);

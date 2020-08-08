@@ -26,13 +26,12 @@ namespace ReportBack.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Paragraph>>> Get()
         {
-            var a = await _context.Paragraphs
+            return await _context.Paragraphs
                 .Include(s => s.Planet)
                 .Include(s => s.House)
                 .Include(s => s.Sign)
                 .AsNoTracking()
                 .ToListAsync();
-            return a;
         }
 
         // GET paragraph/5
@@ -113,7 +112,7 @@ namespace ReportBack.Controllers
 
         // DELETE api/<ParagraphController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var paragraph = await _context.Paragraphs.FindAsync(id);
 
